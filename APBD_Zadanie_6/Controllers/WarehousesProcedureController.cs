@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APBD_Zadanie_6.Controllers
 {
-    public class WarehouseProcedureController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class WarehousesProcedureController : Controller
     {
         private readonly IWarehouseProcedureService _warehouseProcedureService;
-        public WarehouseProcedureController(IWarehouseProcedureService warehouseProcedureService) 
+        public WarehousesProcedureController(IWarehouseProcedureService warehouseProcedureService) 
         { 
             _warehouseProcedureService = warehouseProcedureService;
         }
@@ -15,7 +17,7 @@ namespace APBD_Zadanie_6.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProductToWarehouse(ProductWarehouse productWarehouse)
         {
-            var result = _warehouseProcedureService.AddProductToWarehouse(productWarehouse);
+            var result = await _warehouseProcedureService.AddProductToWarehouse(productWarehouse);
             return Ok(result);
         }
     }

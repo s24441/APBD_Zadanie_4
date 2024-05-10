@@ -100,6 +100,7 @@ namespace Zadanie5.Services
                 cmd.Parameters.AddWithValue("IdProduct", productWarehouse.IdProduct);
                 cmd.Parameters.AddWithValue("IdOrder", idOrder);
                 cmd.Parameters.AddWithValue("Amount", productWarehouse.Amount);
+                cmd.Parameters.AddWithValue("Price", price);
                 cmd.Parameters.AddWithValue("CreatedAt", productWarehouse.CreatedAt);
 
                 var rowsInserted = await cmd.ExecuteNonQueryAsync();
